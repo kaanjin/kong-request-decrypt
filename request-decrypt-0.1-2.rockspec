@@ -1,7 +1,7 @@
 package = "request-decrypt"
-version = "0.1-1"
+version = "0.1-2"
 source = {
-  url = "https://github.com/kaanjin/kong-request-decrypt"
+  url = "git://github.com/kaanjin/kong-request-decrypt"
 }
 description = {
   summary = "A Kong plugin, that let decrypt request' json body",
