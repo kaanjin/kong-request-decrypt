@@ -1,5 +1,5 @@
 package = "request-decrypt"
-version = "0.1-2"
+version = "0.1-3"
 source = {
   url = "git://github.com/kaanjin/kong-request-decrypt"
 }

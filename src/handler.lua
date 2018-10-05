@@ -1,5 +1,5 @@
-local BasePlugin = require "base_plugin"
-local access = require "access"
+local BasePlugin = require "kong.plugins.base_plugin"
+local access = require "kong.plugins.request-decrypt.access"
 
 local RequestDecryptPlugin = BasePlugin:extend()
 
