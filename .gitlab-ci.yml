@@ -29,6 +29,6 @@ upload rock:
   before_script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
   script:
-    - docker run --name luarock -v $(pwd):/workdir --rm -i -t $CI_REGISTRY_IMAGE:$IMAGE_TAG-$VERSION /bin/sh -c "luarocks pack $ROCKSPEC && luarocks upload $ROCKSPEC --api-key=$LUAROCKS_API_KEY"
+    - docker run --name luarock -v $(pwd):/workdir --rm $CI_REGISTRY_IMAGE:$IMAGE_TAG-$VERSION /bin/sh -c "luarocks pack $ROCKSPEC && luarocks upload $ROCKSPEC --api-key=$LUAROCKS_API_KEY"
   tags:
     - docker
