@@ -1,0 +1,34 @@
+stages:
+  - build image
+  - upload rock
+
+variables:
+  LUAROCKS_API_KEY: $LUAROCKS_API_KEY
+  ROCKSPEC: request-decrypt-0.1-1.rockspec
+  IMAGE_TAG: luarocks
+  VERSION: $CI_PIPELINE_ID
+
+build image:
+  stage: build image
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD    
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$IMAGE_TAG-$VERSION .
+    - docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG-$VERSION
+  tags:
+    - docker 
+
+upload rock:
+  stage: upload rock
+  image: docker:latest
+  services:
+    - docker:dind  
+  before_script:
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  script:
+    - docker run --name luarock -v $(pwd):/workdir --rm -i -t $CI_REGISTRY_IMAGE:$IMAGE_TAG-$VERSION /bin/sh -c "luarocks pack $ROCKSPEC && luarocks upload $ROCKSPEC --api-key=$LUAROCKS_API_KEY"
+  tags:
+    - docker
