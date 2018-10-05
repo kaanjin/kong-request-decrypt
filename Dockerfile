@@ -2,7 +2,7 @@ FROM alpine
 
 ENV LUA_VERSION 5.3.4
 
-RUN apk add --update make tar unzip gcc openssl-dev readline-dev curl libc-dev zip
+RUN apk add --update make tar unzip gcc openssl-dev readline-dev curl libc-dev zip git
 
 RUN curl -L http://www.lua.org/ftp/lua-${LUA_VERSION}.tar.gz | tar xzf -
 WORKDIR /lua-$LUA_VERSION
