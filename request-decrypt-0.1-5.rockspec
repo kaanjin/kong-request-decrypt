@@ -1,5 +1,5 @@
 package = "request-decrypt"
-version = "0.1-4"
+version = "0.1-5"
 source = {
   url = "git://github.com/kaanjin/kong-request-decrypt"
 }
@@ -8,14 +8,14 @@ description = {
   license = "Apache 2.0"
 }
 dependencies = {
-  "lua >= 5.2"
+  "lua >= 5.1"
   -- If you depend on other rocks, add them here
 }
 build = {
   type = "builtin",
   modules = {
-    ["kong.plugins.request-decrypt.access"] = "src/access.lua",
-    ["kong.plugins.request-decrypt.handler"] = "src/handler.lua",
-    ["kong.plugins.request-decrypt.schema"] = "src/schema.lua"
+    ["kong.plugins.request-decrypt.access"] = "kong/plugins/request-decrypt/access.lua",
+    ["kong.plugins.request-decrypt.handler"] = "kong/plugins/request-decrypt/handler.lua",
+    ["kong.plugins.request-decrypt.schema"] = "kong/plugins/request-decrypt/schema.lua"
   }
 }

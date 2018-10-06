@@ -4,7 +4,7 @@ stages:
 
 variables:
   LUAROCKS_API_KEY: $LUAROCKS_API_KEY
-  ROCKSPEC: request-decrypt-0.1-4.rockspec
+  ROCKSPEC: request-decrypt-0.1-5.rockspec
   IMAGE_TAG: luarocks
   VERSION: $CI_PIPELINE_ID
 
