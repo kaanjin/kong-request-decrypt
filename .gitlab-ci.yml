@@ -32,3 +32,4 @@ upload rock:
     - docker run --name luarock -v $(pwd):/workdir --rm $CI_REGISTRY_IMAGE:$IMAGE_TAG-$VERSION /bin/sh -c "luarocks pack $ROCKSPEC && luarocks upload $ROCKSPEC --api-key=$LUAROCKS_API_KEY"
   tags:
     - docker
+  when: manual
