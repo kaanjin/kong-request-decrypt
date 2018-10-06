@@ -9,7 +9,7 @@ end
 
 function RequestDecryptPlugin:access(conf)
 	RequestDecryptPlugin.super.access(self)
-	access.run(conf)
+	access.execute(conf)
 end
 
 return RequestDecryptPlugin
