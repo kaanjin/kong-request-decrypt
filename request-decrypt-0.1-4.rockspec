@@ -1,5 +1,5 @@
 package = "request-decrypt"
-version = "0.1-3"
+version = "0.1-4"
 source = {
   url = "git://github.com/kaanjin/kong-request-decrypt"
 }
@@ -8,7 +8,7 @@ description = {
   license = "Apache 2.0"
 }
 dependencies = {
-  "lua >= 5.1"
+  "lua >= 5.2"
   -- If you depend on other rocks, add them here
 }
 build = {
